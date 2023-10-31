@@ -20,7 +20,7 @@ namespace ClassyMetody
         }
         public void outinfo()
         {
-            Console.WriteLine($"Номер: {this.number}\n Топливо: {this.fuel}\n Расход: {this.flow}");
+            Console.WriteLine($"Номер: {this.number}\nТопливо: {this.fuel} Расход: {this.flow}");
         }
 
         public void zaprawka(float top)
@@ -29,8 +29,26 @@ namespace ClassyMetody
         }
         public void move(int km)
         {
+
+            float ostatok = this.fuel - (km * (this.flow) / 100);
+            if (ostatok > 0)
+            {
+                Console.WriteLine("Осталось в баке: " + ostatok + " л");
+            } if (ostatok < 0)
+            {
+                Console.WriteLine("А ты хрен доедешь, давай зальём?");
+                zaprawka(float.Parse(Console.ReadLine()));
+                if (ostatok > 0)
+                {
+                    Console.WriteLine("Мы смогли доехать до рая и в баке осталось: " + ostatok);
+                } if (ostatok < 0)
+                {
+                    float for_ostatok = (ostatok * -1);
+                    Console.WriteLine($"Вам не хватило топлива до рая. Нужно было залить ещё {for_ostatok:F1} литра(ов)");
+                }
+            }
+
             
-            Console.WriteLine($"осталось после поездки {this.fuel-(km*(this.flow)/100)} литров");
         }
     }
 }
