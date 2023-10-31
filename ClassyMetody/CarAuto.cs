@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassyMetody
 {
-    internal class CarAuto
+    internal class CarAuto 
     {
         private string number;
         private float fuel;
